@@ -1,0 +1,636 @@
+/* rest css */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family:Arial, Helvetica, sans-serif ;
+
+/* scroll: hành động cuộn,  behavior: hành vi khi quận  */
+    scroll-behavior: smooth;
+}
+/* Common :Begin  hàng dùng chung */
+.clear{
+    clear: both;
+}
+
+/* tạo để gắn thành màu trắng cho tiện  */
+.text-while{
+    color: #fff !important;
+}
+/* tạo để các thứ căn giữa */
+.text-center{
+    text-align: center !important;
+}
+
+.row /* hàng*/{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after{
+    content: "";
+    display: block;
+    clear:both;
+}
+
+.mt-8 /* margin top */ {
+    margin-top: 8px !important;
+}
+
+.mt-16 /* margin top */ {
+    margin-top: 16px !important;
+}
+
+.mt-32{
+    margin-top: 32px !important;
+}
+
+.column /* cột*/{
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.column-third /* cột 3 nếu bị chia đều cho trình duyệt*/ {
+    width: 33.33333%;
+}
+
+.column-half /* cột 1 nửa nếu bị chia đều cho trình duyệt */ {
+    width: 50%;
+}
+
+.column-full{
+    width: 100%;
+}
+
+/* Common :End  hàng dùng chung */
+
+/* Nguyên tắc làm việc 
+1   Từ ngoài vào trong
+2   Từ trên xuống dưới
+3   Từ tổng quan đến chi tiết
+
+*/
+
+/* 
+1   Vị trí
+2   Kích thước
+3   Màu sắc
+4   Kiểu dáng (kiểu chữ, hình tròn, vuông .. )
+ */
+
+#main{
+    
+}
+
+#header{
+    height: 46px;
+    background-color: #000;
+    /* khi làm fixed nên thêm top left right */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; /* tránh ảnh vuốt lên đè lên phần header */
+    /* css hiển thị cái responsive cái header mobile */
+    
+
+}
+
+/* 1 Begin: Nav */
+#nav {
+    display: inline-block;
+}
+
+#nav, .subnav{
+    list-style: none; /* cách bỏ dấu chám ở đầu dòng*/
+}
+
+#nav > li{
+    display: inline-block;
+}
+
+#nav li{
+    position: relative;
+}
+
+#nav > li > a{
+     color: #fff;
+     text-transform: uppercase; /* Chuyển chữ thường thành chữ in hoa */
+}
+    
+#nav li a{
+    text-decoration: none;   /* loại bỏ gạch dưới của chữ */ 
+    line-height: 46px; /*cách căn giữa dòng chữ để dòng chữ nên bằng vs cái height */
+    padding: 1px 24px;
+    display: block; 
+}
+
+#nav li:hover .subnav{
+    display: block; /* cách để hiện  khi hover vào thẻ caassp 1 ra cấp 2 */
+}
+
+#nav >li:hover > a{
+    color: #000;
+    background-color: #ccc;
+}
+
+#nav .subnav{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    min-width: 160px; /* để chiều ngang tối thiểu */
+    /* fix 1 số trường hợp trình duyệt không ổn định kích thước */
+    top: 100%;
+    left: 0;
+
+}    
+
+#nav .subnav a{
+    color: #000;
+    padding: 0 12px;
+    line-height: 38px;
+}
+
+#nav .subnav li:hover a{
+    color: #000;
+    background-color: #ccc;
+}
+
+#nav .nav-arrow-down {
+    font-size: 12px;
+}
+/* 1 End: Nav */
+
+/* 2 Begin: header */
+#header .search-btn {
+    float: right;
+    padding: 0 21px;
+    cursor: pointer; /* cách để khi hover vào ra con trỏ chi tay */
+}
+
+#header .search-btn:hover{
+    background-color: #f44336;
+}
+
+#header .search-icon{
+    font-size: 20px;
+    color: #fff;
+    line-height: 46px; 
+}
+
+/* css reponsive mobile cái menu khi đã ẩn cái nút tìm kiếm */
+#header .mobile-menu-btn{
+    float: right;
+    padding: 0 21px;
+    cursor: pointer; /* cách để khi hover vào ra con trỏ chi tay */
+    /* cách để hiện cái menu khi responsive ấn đc trong menu các tùy chọn  */
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}   
+
+#header .mobile-menu-btn:hover{
+    background-color: #ccc;
+}
+
+/* cách làm nhanh có sự ưu tiên khi ko đổi đc background và color khi reponsive */
+#header .mobile-menu-btn:hover .menu-icon{
+    background-color: #ccc;
+    color: #000;
+}
+
+#header .menu-icon{
+    font-size: 20px;
+    color: #fff;
+    line-height: 46px; 
+}
+
+
+
+
+
+
+
+
+/* 2 End: header */
+
+/* 3 Begin: slider */
+#slider{
+   /* LƯU Ý  -> khi làm xong phần header đến phần sau tránh bị background coler đè lên phần trc  */
+   margin-top: 46px;
+   /* Lưu Ý  bên trên header = bao nhiêu margin top phải bằng bấy nhiêu*/
+    padding-top: 50%; /* cần phải có khi làm silder */
+    background: url('/demo_band/assets/img/img1.jpg') top center / cover no-repeat ;
+    position: relative; /* LƯu ý sẽ được nhấc cao 1 level */
+}
+
+
+#slider .text-content{
+    position: absolute; /* LƯu ý sẽ được nhấc cao 1 level */
+    bottom: 47px;
+    color: #fff;
+    /* căn giữa */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    /* cách 2  */
+    /* width: 100%; */
+    
+}
+
+#slider .text-heading{
+    font-weight: 500; /*giảm độ dày*/
+    font-size: 24px;
+}
+
+#slider .text-description{
+    font-size: 16px;
+    margin-top: 25px;
+    text-shadow: 0 0 1px #000;
+    
+}
+/* 3 End: slider */
+
+/* 4 Begin: content */
+#content{
+  
+}
+
+#content .content-section{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 0px;
+    /* ghi xuống bên dưới nếu chỉnh sửa cái hiển thị ipad */
+       /* căn sửa để phù hợp cho hiển thị ipad */
+       max-width: 100%;
+       /* 2 padding đẻ bù trừ cho cái row hiển thị ipad do row có marrgin là số âm */
+       padding-left: 16px;
+       padding-right: 16px;
+}
+
+#content .section-heading{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 300; /* độ mỏng của chữ */
+    letter-spacing: 4px; /* khoảng cách liền kề của chữ   */
+}
+
+#content .section-subheading{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 25px;
+    font-style: italic; /* chữ in nghiêng */
+    opacity: 0.6; /* Độ mờ của chữ */   
+}
+
+#content .about-text{
+    font-size: 15px;
+    margin-top: 25px;
+    text-align: justify; /* căn đều và thẳng 2 bên của đoạn văn */
+    line-height: 1.4; /* chỉ độ cao 1 dòng */
+    font-weight: 200; /* chữ đậm  */
+}
+
+#content .member-list{
+    margin-top: 32px;
+   /** overflow: hidden; /* dùng cái này để ôm những phần cần ôm khi dùng float (float sẽ không ôm được những phần thuộc float ) */
+    /* cách 2 ko dùng overflow là clear dòng thứ 12 */
+}
+
+/* #content .member-item{
+    text-align: center; 
+} */
+
+#content .member-name{
+    font-size: 15px;
+    
+}
+
+#content .member-img{
+    margin-top: 15px;
+    width: 154px;
+    border-radius: 4px;
+}
+/* 4 End: Content */
+
+
+/* 5 Begin: Tour section */
+.tour-section{
+    background-color: #000;
+}
+
+.tour-section .content-section{
+
+}
+
+        /*5.1 Begin: Tickets */
+.tickets-list{
+    background-color: #fff;
+    margin-top: 40px;
+}
+
+.tickets-list li{
+    font-size: 15px;
+    padding: 11px 16px;
+    border-bottom: 1px solid #ddd;
+    color: #757575;
+    list-style: none;
+}
+
+.tickets-list .sold-out{
+    color: #fff;
+    background-color:  #f44336;
+    padding: 3px 4px;
+    margin-left: 16px;
+}
+
+.tickets-list .quantity{
+    float: right;
+    width: 24px;
+    height: 24px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%; /* chuyển từ hình vuông sang hình tròn*/
+    text-align: center; /*chữ hoặc số hoặc  căn giữa từ trái qua phải */
+    line-height: 24px;/* chữ hoặc số hoặc căn giữa từ trên xuống dưới (để căn giữa được cái này thì số nhập phải bằng width or height)*/
+    /* nếu bị hình bị lệch không đều thì dùng margin gán số âm (trường hợp này dùng đc khi có float) */
+    margin-top: -3px;
+}
+         /*5.1 End: Tickets */
+
+
+         /* 5.2 Begin: Places */
+.places-list{
+    margin-top: 16px;
+    margin-bottom: 48px; 
+}   
+/* .places-item{
+    width: 33.33333%;
+} */
+.places-img{
+    width: 100%;
+    display: block;  /* xóa khoảng cách có màu đen từ chân ảnh đến chữ New york và các chữ khác*/
+}
+
+.places-img:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.places-body{
+    background-color: #fff;
+    padding: 16px;
+    font-size: 15px;
+   
+}
+
+.places-heading{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.places-times{
+    margin-top: 15px;
+    color: #757575;
+}
+
+.places-description{
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.places-buy-btn{
+    background-color: #000;
+    color: #fff;
+    text-decoration: none; /* bỏ gạch chân*/
+    padding: 11px 16px;
+    display: inline-block; /* để cái padding ko bị đè lên chữ */
+    margin-top: 15px;
+    text-align: center;
+}
+
+.places-buy-btn:hover{
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+}
+         /* 5.2 End: Places */
+
+
+         /* 5.3 Begin Buy Tickets */
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background:rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+/* Cần có rất quan trong để khi thực hiện ấn buy tickets thì nó mới hiện cái bảng buy tickets */
+.modal.open{
+    display: flex;
+}
+
+.modal-container{
+    background-color: #fff;
+    width: 900px;
+    min-height: 200px; /* chiều cao tối thiểu*/
+    position: relative;
+    /* tạo hiệu ứng chuyển ảnh từ trên xuốn dưới */
+    animation:  modalFaceIn ease 0.5s;
+}
+
+header.modal-header{
+    background-color: #009688;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #fff;
+    letter-spacing: 4px;
+}
+
+.modal-heading-icon{
+    margin-right: 16px;
+}
+
+.modal-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    padding: 12px;
+}
+
+.modal-close:hover
+{
+    cursor: pointer;
+    opacity: 0.9;
+    background-color: #ccc;
+}
+
+.modal-body{
+    padding: 16px;
+}
+
+.modal-label{
+    display: block;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.modal-input{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+#buy-tickets{
+    background-color: #009688;
+    border: none;
+    color: #fff;
+    width: 100%;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 18px;
+}
+
+#buy-tickets:hover{
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.modal-footer{
+    padding: 16px;
+    font-size: 15px;
+    text-align: right;
+}
+
+.modal-footer a{
+    color: #009688;
+}
+            /* 5.3 End Buy Tickets */
+
+      /* 5.4 Begin Java Buy Tickets  */
+      /*tạo cái chuyển động liên tiếp hình ảnh tĩnh hoạt họa*/
+        @keyframes modalFaceIn {
+            from{
+                opacity: 0;
+                transform: translateY(-130px);
+            }
+
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        } 
+      /* 5.4 End Java Buy Tickets */
+/* 5 End: Tour section */
+
+/* 6 Begin: ConTact form*/
+.contact-content{
+    margin-top: 48px;
+}
+
+.contact-infor{
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.contact-infor i{
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-infor a{
+    color: #009688; 
+}
+
+.contact-infor a:hover{
+    color: purple; 
+    opacity: 1;
+}
+
+.contact-form {
+    font-size: 15px;
+}
+
+
+.contact-form .form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* khi nhấn vào nó nó sẽ kích hoạt*/
+.contact-form .form-control:active {
+    outline: 1px solid #000;
+}
+
+.form-submit-btn{
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    padding: 10px 16px;
+    float: right;
+    cursor: pointer;
+}
+/* 6 End: ConTact form*/
+
+
+/* 7 Begin: Map */
+.map-section img{ 
+    width: 100%;
+    margin-top: 31px;
+    }
+/* 7 End: Map */
+
+
+/* 8 Begin: Footer */
+#footer{
+    padding: 64px 16px;
+    text-align: center;
+}
+
+#footer .socials-list {
+    font-size: 24px;
+}
+
+#footer .socials-list a{
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+
+#footer .socials-list a:hover{
+    color: rgba(0, 0, 0, 0.3);
+
+}
+
+#footer .copy-right{
+    margin-top: 15px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#footer .copy-right a{
+    color: #009688;
+    padding: 12px 0 ;
+    display: inline-block;
+}
+/* 8 End: Footer */
